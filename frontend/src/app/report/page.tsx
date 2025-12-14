@@ -22,7 +22,9 @@ export default function ReportPage() {
 
         const fetchData = async () => {
             try {
-                const res = await fetch("http://localhost:8000/analyze", {
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+                const res = await fetch(`${apiUrl}/analyze`, {
+
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ url }),
