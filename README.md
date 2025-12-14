@@ -4,9 +4,12 @@
 
 GitGrade is an intelligent, AI-powered system that acts as a **Technical Recruiter** for your code. It analyzes your GitHub repositories without cloning them, providing an instant employability score, professional feedback, and a personalized roadmap to help you land your next job.
 
+[![Watch the Demo](https://img.youtube.com/vi/RhXvz2wUFRs/0.jpg)](https://youtu.be/RhXvz2wUFRs)
+
 ---
 
 ## ✨ Key Features
+
 
 ### 🧠 AI-Powered Analysis
 - **"Recruiter Persona"**: Uses Google Gemini (Flash Model) to evaluate code not just for syntax, but for employability, structure, and best practices.
