@@ -9,7 +9,9 @@ import { Loader2, AlertCircle } from "lucide-react";
 import { AnalysisResult } from "@/types";
 import Link from "next/link";
 
-export default function ReportPage() {
+import { Suspense } from "react";
+
+function ReportContent() {
     const searchParams = useSearchParams();
     const url = searchParams.get("url");
 
@@ -24,7 +26,6 @@ export default function ReportPage() {
             try {
                 const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
                 const res = await fetch(`${apiUrl}/analyze`, {
-
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ url }),
@@ -118,3 +119,17 @@ export default function ReportPage() {
         </main>
     );
 }
+
+export default function ReportPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50">
+                <Loader2 className="w-12 h-12 text-orange-500 animate-spin mb-4" />
+                <h2 className="text-xl font-semibold text-slate-700">Loading...</h2>
+            </div>
+        }>
+            <ReportContent />
+        </Suspense>
+    );
+}
+
