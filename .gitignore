@@ -1,0 +1,20 @@
+# General
+.DS_Store
+*.log
+
+# Backend (Python/FastAPI)
+backend/__pycache__/
+backend/*.pyc
+backend/.env
+backend/venv/
+backend/.venv/
+backend/*.egg-info/
+
+# Frontend (Next.js)
+frontend/.next/
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+frontend/build/
+frontend/dist/
+frontend/.vercel/
