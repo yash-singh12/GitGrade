@@ -1,15 +1,12 @@
-"use client";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
 
 export function Hero() {
     const [url, setUrl] = useState("");
     const [loading, setLoading] = useState(false);
-    const router = useRouter();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -17,7 +14,7 @@ export function Hero() {
         setLoading(true);
 
         const encodedUrl = encodeURIComponent(url);
-        router.push(`/report?url=${encodedUrl}`);
+        navigate(`/report?url=${encodedUrl}`);
     };
 
 

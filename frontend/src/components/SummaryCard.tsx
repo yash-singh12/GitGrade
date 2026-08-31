@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { FileText, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 interface SummaryCardProps {
     summary: string;

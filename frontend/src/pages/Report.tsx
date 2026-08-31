@@ -1,18 +1,13 @@
-"use client";
-
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, Link } from "react-router-dom";
 import { ScoreGauge } from "@/components/ScoreGauge";
 import { Roadmap } from "@/components/Roadmap";
 import { SummaryCard } from "@/components/SummaryCard";
 import { Loader2, AlertCircle } from "lucide-react";
 import { AnalysisResult } from "@/types";
-import Link from "next/link";
-
-import { Suspense } from "react";
 
 function ReportContent() {
-    const searchParams = useSearchParams();
+    const [searchParams] = useSearchParams();
     const url = searchParams.get("url");
 
     const [data, setData] = useState<AnalysisResult | null>(null);
@@ -24,7 +19,7 @@ function ReportContent() {
 
         const fetchData = async () => {
             try {
-                const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+                const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
                 const res = await fetch(`${apiUrl}/analyze`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -35,7 +30,7 @@ function ReportContent() {
 
                 const result = await res.json();
                 setData(result);
-            } catch (err) {
+            } catch (_err) {
                 setError("Something went wrong. Please check the URL and try again.");
             } finally {
                 setLoading(false);
@@ -61,7 +56,7 @@ function ReportContent() {
                 <AlertCircle className="w-12 h-12 text-red-500 mb-4" />
                 <h2 className="text-xl font-bold text-slate-900 mb-2">Analysis Failed</h2>
                 <p className="text-slate-600 mb-6">{error}</p>
-                <Link href="/" className="px-6 py-2 bg-slate-900 text-white rounded-full hover:bg-slate-800 transition-colors">
+                <Link to="/" className="px-6 py-2 bg-slate-900 text-white rounded-full hover:bg-slate-800 transition-colors">
                     Try Another Repo
                 </Link>
             </div>
@@ -72,7 +67,7 @@ function ReportContent() {
         <main className="min-h-screen bg-slate-50 py-12 px-4">
             <div className="max-w-4xl mx-auto">
                 <div className="mb-8 flex items-center justify-between">
-                    <Link href="/" className="text-slate-500 hover:text-slate-900 transition-colors">
+                    <Link to="/" className="text-slate-500 hover:text-slate-900 transition-colors">
                         ← Back to Home
                     </Link>
                     <h1 className="text-sm font-mono text-slate-400 truncate max-w-md">{url}</h1>
@@ -120,16 +115,6 @@ function ReportContent() {
     );
 }
 
-export default function ReportPage() {
-    return (
-        <Suspense fallback={
-            <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50">
-                <Loader2 className="w-12 h-12 text-orange-500 animate-spin mb-4" />
-                <h2 className="text-xl font-semibold text-slate-700">Loading...</h2>
-            </div>
-        }>
-            <ReportContent />
-        </Suspense>
-    );
+export default function Report() {
+    return <ReportContent />;
 }
-

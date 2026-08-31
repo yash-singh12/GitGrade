@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Circle } from "lucide-react";
+import { Circle } from "lucide-react";
 
 interface RoadmapProps {
     items: string[];
