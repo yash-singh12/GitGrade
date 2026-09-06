@@ -1,13 +1,7 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { Circle } from "lucide-react";
 
-interface RoadmapProps {
-    items: string[];
-}
-
-export function Roadmap({ items }: RoadmapProps) {
+export function Roadmap({ items }) {
     return (
         <div className="w-full max-w-2xl bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
             <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">

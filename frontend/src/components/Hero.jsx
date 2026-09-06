@@ -8,7 +8,7 @@ export function Hero() {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!url) return;
         setLoading(true);
@@ -16,7 +16,6 @@ export function Hero() {
         const encodedUrl = encodeURIComponent(url);
         navigate(`/report?url=${encodedUrl}`);
     };
-
 
     return (
         <div className="flex flex-col items-center justify-center min-h-[80vh] text-center px-4">
@@ -32,8 +31,6 @@ export function Hero() {
                 <p className="text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto mb-12 font-medium">
                     Turn your GitHub into a Hiring Magnet.
                 </p>
-
-
 
                 <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto relative flex items-center">
                     <div className="relative w-full group">
@@ -61,8 +58,6 @@ export function Hero() {
                         </button>
                     </div>
                 </form>
-
-
 
                 <p className="mt-4 text-sm text-slate-400">
                     Try: facebook/react, vercel/next.js, or your own repo.

@@ -4,13 +4,12 @@ import { ScoreGauge } from "@/components/ScoreGauge";
 import { Roadmap } from "@/components/Roadmap";
 import { SummaryCard } from "@/components/SummaryCard";
 import { Loader2, AlertCircle } from "lucide-react";
-import { AnalysisResult } from "@/types";
 
 function ReportContent() {
     const [searchParams] = useSearchParams();
     const url = searchParams.get("url");
 
-    const [data, setData] = useState<AnalysisResult | null>(null);
+    const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
@@ -30,7 +29,7 @@ function ReportContent() {
 
                 const result = await res.json();
                 setData(result);
-            } catch (_err) {
+            } catch (err) {
                 setError("Something went wrong. Please check the URL and try again.");
             } finally {
                 setLoading(false);

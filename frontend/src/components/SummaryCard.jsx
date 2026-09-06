@@ -1,12 +1,6 @@
-"use client";
-
 import { Sparkles } from "lucide-react";
 
-interface SummaryCardProps {
-    summary: string;
-}
-
-export function SummaryCard({ summary }: SummaryCardProps) {
+export function SummaryCard({ summary }) {
     return (
         <div className="w-full max-w-2xl bg-white rounded-2xl p-8 shadow-sm border border-slate-100 mb-8">
             <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">

@@ -1,17 +1,11 @@
-"use client";
-
 import { motion } from "framer-motion";
 
-interface ScoreGaugeProps {
-    score: number;
-}
-
-export function ScoreGauge({ score }: ScoreGaugeProps) {
+export function ScoreGauge({ score }) {
     const radius = 80;
     const circumference = 2 * Math.PI * radius;
     const strokeDashoffset = circumference - (score / 100) * circumference;
 
-    const getColor = (s: number) => {
+    const getColor = (s) => {
         if (s >= 80) return "text-green-500";
         if (s >= 60) return "text-orange-500";
         return "text-red-500";
