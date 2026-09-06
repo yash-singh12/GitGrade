@@ -27,14 +27,14 @@ GitGrade is an intelligent, AI-powered system that acts as a **Technical Recruit
 
 ### ⚡ Technical Highlights
 - **FastAPI Backend**: High-performance Python API handling asynchronous GitHub data fetching.
-- **Next.js Frontend**: Server-side rendering and optimized client interactions.
+- **React + Vite Frontend**: Fast, optimized client-side rendering with lightning-fast dev server.
 - **Zero-Config Deployment**: Ready for Vercel (Frontend) and Render (Backend).
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: Next.js 14, TypeScript, Tailwind CSS, Framer Motion, Lucide Icons.
+- **Frontend**: React, Vite, JavaScript, Tailwind CSS, Framer Motion, Lucide Icons.
 - **Backend**: Python, FastAPI, Uvicorn, Google Gemini API, HTTPX.
 - **Tools**: Git, npm, pip.
 
@@ -71,13 +71,13 @@ npm install
 # Run Development Server
 npm run dev
 ```
-*App runs at `http://localhost:3000`*
+*App runs at `http://localhost:5173`*
 
 ---
 
 ## 📦 Short Description (For Portfolio/Socials)
 
-**GitGrade** is an AI-powered developer tool that helps engineers improve their GitHub portfolios. By leveraging the **Google Gemini LLM**, it simulates a technical recruiter's review process, scanning repositories to provide an **Employability Score (0-100)**, a professional summary, and a tailored roadmap for improvement. Built with **Next.js** and **FastAPI**, it features a secure, in-memory analysis engine and a premium, animated UI designed to turn code into a career asset.
+**GitGrade** is an AI-powered developer tool that helps engineers improve their GitHub portfolios. By leveraging the **Google Gemini LLM**, it simulates a technical recruiter's review process, scanning repositories to provide an **Employability Score (0-100)**, a professional summary, and a tailored roadmap for improvement. Built with **React**, **Vite** and **FastAPI**, it features a secure, in-memory analysis engine and a premium, animated UI designed to turn code into a career asset.
 
 ---
 
